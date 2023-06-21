@@ -1,11 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guia Pre-configuración</title>
 </head>
 <body>
-    <p>Texto en desarrollo</p>
+
+<h2>- Crear Token en GitHub, estando dentro de tu cuenta de GitHub:</h2>
+    <p>-> Settings -> Developers Settings -> Personal access tokens -> Tokens (classic) -> Generate new token -> Generate new token (classic) -> (completar tu contraseña de GitHub):</p>
+    <ul>
+        <li>Note: Dar un nombre abreviado para el token.</li>
+        <li>Expiration: seleccionar una duración de validez para el token.</li>
+        <li>Solo tildar el item ‘repo’ (se auto-seleccionan las opciones anidadas correspondientes).</li>
+    </ul>
+    <p>-> Generate token -> (copiar token enlistado a continuación del tilde verde en un lugar seguro, no será posible verlo nuevamente)</p>
+<br>
+<h2>- Crear credencial en Windows:</h2>
+    <p>-> Panel de control -> Cuentas de usuario -> Administrador de credenciales -> Credenciales de Windows -> Agregar una credencial genérica ->:</p>
+    <ul>
+        <li>Direccion de red o internet: git:https://github.com</li>
+        <li>Nombre de usuario: ‘tu_usuario_de_GitHub’</li>
+        <li> Contraseña: ‘token_generado_en_GitHub’ </li>
+    </ul>
+    <p>-> Guardar</p>
+<br>
+<h2>- Configurar Token de GitHub con el espacio local:</h2>
+    <p>- Abre una terminal en tu computadora.</p>
+    <p>- Verifica si tienes configurado nombre de usuario y correo electrónico global en Git ejecutando los comandos:</p>
+    <p><b>git config --global user.name</b></p>
+    <p><b>git config --global user.email</b></p>
+    <p>-Si los valores están vacíos, configúralos utilizando los comandos:</p>
+    <p><b>git config --global user.name <i>"tu_usuario"</i></b></p>
+    <p><b>git config --global user.email <i>"tu_correo@ejemplo.com"</i></b></p>
+    <p>- Copia el token generado en GitHub</p>
+    <p>- Ejecuta el siguiente comando para almacenar el token en la configuración de Git:</p>
+    <p><b>git config --global credential.https://github.com.username “tu_usuario”</p></b>
+    <p>Reemplaza "tu_usuario" con tu nombre de usuario en la plataforma Git.</p>
+    <p>- Ejecuta el siguiente comando para configurar el token: </p>
+    <p><b>config --global credential.helper store </p></b>
+    <p> Esto hará que Git almacene las credenciales, incluido el token, en el disco de manera persistente.</p>
+    <p>- Verifica si has almacenado un token en la configuración de Git ejecutando el comando:</p>
+    <p><b>git config --global credential.https://github.com.username</b></p>
+    <p>Si muestra tu nombre de usuario significa que has almacenado un token. Git utilizará el token para autenticarte cuando realices operaciones que lo requieran (clonar, push, pull).</p>
+<br>
+<h2>- Entrar en Visual Studio Code y:</h2>
+    <p>Instalar extension: -> Extensions (ctrl+shift+x) -> (Instalar extension ‘Live Server’).</p>
+    <p>Configurar auto-guardado: -> File -> Auto Save.</p>
+    <p>Sincronización en la nube de configuración: -> File -> Preferences -> Settings -> Turn on settings sync -> (dejar tildadas todas las opciones) -> Sign in & Turn on -> (seleccionar cuenta de GitHub o Microsoft para sincronizar y completar procedimiento restante).</p>
+<br><br><br>
+    <footer>
+        <div style='text-align:right'>
+            <p><i>El procedimiento descripto en esta página fue probado satisfactoriamente en sistema operativo Windows 10 (64 bit)</i></p>
+        </div>
+    </footer>
 </body>
 </html>
